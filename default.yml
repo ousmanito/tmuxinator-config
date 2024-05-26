@@ -1,0 +1,29 @@
+name:
+root: ~/dev/
+tmux_options: -f ~/.tmux.conf
+tmux_detached: false
+on_project_stop: docker --help && python --help;
+windows:
+  - backend-ide:
+      layout: main-vertical
+      panes:
+        - nvim
+  - frontend-ide:
+      layout: main-vertical
+      panes:
+        - nvim
+  - logs:
+      layout: 6515,213x56,0,0[213x27,0,0{106x27,0,0,1,106x27,107,0,6},213x28,0,28,3]
+      panes:
+        - pane_with_multiples_commands:
+            - man git; pwd
+        - pane_with_multiples_commands:
+            - ls
+            - ls -la
+        - ls
+  - shells:
+      layout: 3b62,213x56,0,0[213x22,0,0,2,213x33,0,23{106x33,0,23,6,106x33,107,23,7}]
+      panes:
+        - pwd
+        - ls
+        -
